@@ -1,19 +1,18 @@
-// @ts-ignore
 import express from 'express';
-// @ts-ignore
 import { Builder, Nuxt } from 'nuxt';
 
 import apiRouter from './controllers/api'
 
+let app: any =  express();
+let host = process.env.HOST || '127.0.0.1';
+let port = Number(process.env.PORT) || 3000
+
+
+
 export default class NuxtExpressServer {
-  private app: express.Application;
-  private host: string;
-  private port: number;
 
   constructor() {
-    this.app = express();
-    this.host = process.env.HOST || '127.0.0.1';
-    this.port = Number(process.env.PORT) || 3000;
+
   }
 
   public start(): void {
@@ -30,13 +29,13 @@ export default class NuxtExpressServer {
       builder.build();
     }
 
-    this.app.use("/api", apiRouter);
+    app.use("/api", apiRouter);
     // Give nuxt middleware to express
-    this.app.use(nuxt.render);
+    app.use(nuxt.render);
 
     // Listen the server
-    this.app.listen(this.port, this.host);
-    console.log('Server listening on http://' + this.host + ':' + this.port);
+    app.listen(port, host);
+    console.log('Server listening on http://' + host + ':' + port);
   }
 }
 

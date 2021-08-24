@@ -26,7 +26,7 @@ export default class extends Vue {
   }
   
   toggleLogo() {
-    this.displayLogo = !this.displayLogo;
+    this.displayLogo = !this?.displayLogo;
   }
 }
 </script>

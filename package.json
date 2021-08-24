@@ -9,34 +9,33 @@
   "scripts": {
     "dev": "backpack dev",
     "build": "nuxt build && backpack build",
+    "build-production": "cross-env NODE_ENV=production webpack && cross-env NODE_ENV=production nuxt build",
     "start": "cross-env NODE_ENV=production node .build/main.js",
     "generate": "nuxt generate",
     "test": "node test.js"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/axios": "latest",
     "cross-env": "^5.2.0",
     "element-ui": "^2.12.0",
     "express": "^4.16.3",
-    "nuxt": "^2.0.0",
+    "nuxt": "latest",
     "vuex-class": "^0.3.1"
   },
   "devDependencies": {
+    "@nuxt/typescript-build": "latest",
     "@types/express": "^4.16.0",
     "@types/node": "^10.12.3",
-    "backpack-core": "^0.8.2",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-prettier": "2.6.2",
-    "fork-ts-checker-webpack-plugin": "^0.4.15",
-    "@nuxt/typescript-build": "^0.3.0",
+    "backpack-core": "latest",
+    "nuxt-property-decorator": "latest",
     "prettier": "1.14.3",
-    "ts-loader": "^5.3.0",
-    "tape": "^4.11.0",
-    "typescript": "^3.1.6",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "nuxt-property-decorator": "^1.2.0"
+    "ts-loader": "^5.3.0",
+    "typescript": "latest",
+    "webpack-cli": "^4.7.2",
+    "webpack-node-externals": "^3.0.0"
   }
 }
